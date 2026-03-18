@@ -1,4 +1,5 @@
 import './App.css'
+import { AssetsList } from './features/assets/components'
 
 function App() {
 
@@ -8,9 +9,7 @@ function App() {
         Folio 💰
       </h1>
 
-      <p className="text-neutral-muted mt-2">
-        Controle de ativos
-      </p>
+      <AssetsList />
     </div>
   )
 }
