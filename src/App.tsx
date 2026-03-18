@@ -1,16 +1,17 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import { AssetsList } from './features/assets/components'
+import { AssetsPage } from './pages/AssetsPage'
+import { DashboardPage } from './pages/Dashboard'
 
 function App() {
 
   return (
-    <div className="min-h-screen bg-neutral-light p-8">
-      <h1 className="text-3xl font-bold text-brand-primary">
-        Folio 💰
-      </h1>
-
-      <AssetsList />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<DashboardPage />} />
+        <Route path="/assets" element={<AssetsPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
