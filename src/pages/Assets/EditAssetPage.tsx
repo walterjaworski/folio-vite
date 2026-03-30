@@ -53,7 +53,6 @@ export function EditAssetPage() {
     <div className="flex flex-col gap-4">
       <AssetForm onSubmit={handleUpdate} defaultValues={currentAsset} />
 
-      {/* botão delete */}
       <div className="px-4">
         <button
           onClick={() => setIsModalOpen(true)}
@@ -63,7 +62,6 @@ export function EditAssetPage() {
         </button>
       </div>
 
-      {/* modal */}
       <ConfirmDialog
         isOpen={isModalOpen}
         onCancel={() => setIsModalOpen(false)}

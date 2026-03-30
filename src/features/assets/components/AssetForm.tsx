@@ -33,7 +33,6 @@ export function AssetForm({ onSubmit, defaultValues }: IAssetFormProps) {
         onSubmit={handleSubmit}
         className="w-full max-w-xl bg-white border rounded-2xl p-6 shadow-sm flex flex-col gap-6"
       >
-        {/* Header */}
         <div>
           <h1 className="text-xl font-semibold">Adicionar ativo</h1>
           <p className="text-sm text-neutral-muted">
@@ -41,7 +40,6 @@ export function AssetForm({ onSubmit, defaultValues }: IAssetFormProps) {
           </p>
         </div>
 
-        {/* Ticker */}
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium">Ticker</label>
           <input
@@ -52,7 +50,6 @@ export function AssetForm({ onSubmit, defaultValues }: IAssetFormProps) {
           />
         </div>
 
-        {/* Nome */}
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium">Nome</label>
           <input
@@ -63,7 +60,6 @@ export function AssetForm({ onSubmit, defaultValues }: IAssetFormProps) {
           />
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-1">
             <label className="text-sm font-medium">Preço médio</label>
@@ -86,7 +82,6 @@ export function AssetForm({ onSubmit, defaultValues }: IAssetFormProps) {
           </div>
         </div>
 
-        {/* Button */}
         <button
           type="submit"
           className="mt-2 bg-black text-white rounded-lg py-2 font-medium hover:opacity-90 transition"
