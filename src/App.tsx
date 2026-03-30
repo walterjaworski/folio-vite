@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import { AssetsPage } from './pages/AssetsPage'
+import { AssetsPage } from './pages/Assets'
 import { DashboardPage } from './pages/Dashboard'
 
 function App() {

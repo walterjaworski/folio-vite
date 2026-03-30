@@ -28,7 +28,10 @@ export async function updateAsset(updatedAsset: Asset) {
   const index = assetsMock.findIndex(asset => asset.id === updatedAsset.id);
 
   if (index !== -1) {
-    assetsMock[index] = updatedAsset;
+    assetsMock[index] = {
+      ...assetsMock[index],
+      ...updatedAsset,
+    };
     return updatedAsset;
   }
 

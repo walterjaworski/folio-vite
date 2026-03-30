@@ -1,20 +1,23 @@
 import { useAssets } from "../hooks/useAssets";
 import { AssetCard } from "./AssetCard";
+import { AssetsHeader } from "./AssetsHeader";
 
 export function AssetsList() {
   const { data, isLoading, error } = useAssets();
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Erro ao carregar assets</p>;
-  }
-
   return (
     <div>
-      {data?.map(asset => (
+      <AssetsHeader />
+
+      {isLoading && <p className="p-4">Carregando...</p>}
+
+      {error && <p className="p-4 text-danger">Erro ao carregar assets</p>}
+
+      {!isLoading && !error && data?.length === 0 && (
+        <p className="p-4">Nenhum ativo encontrado</p>
+      )}
+
+      {!isLoading && !error && data?.map(asset => (
         <AssetCard asset={asset} key={asset.id} />
       ))}
     </div>

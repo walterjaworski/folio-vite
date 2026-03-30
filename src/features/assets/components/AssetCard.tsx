@@ -4,55 +4,51 @@ import { calculateAssetMetrics } from "../utils/calculateAssetMetrics";
 
 interface IAssetCardProps {
   asset: Asset;
+  variant?: 'default' | 'compact';
 }
 
-export function AssetCard({ asset }: IAssetCardProps) {
-  const isPositive = asset.change >= 0
+export function AssetCard({ asset, variant = 'default' }: IAssetCardProps) {
+  const isPositive = (asset.change ?? 0) >= 0;
 
   const { label, flag } = getAssetDisplay(asset)
 
-  const { profit, isProfit } = calculateAssetMetrics(asset);
+  const { profit, isProfit, totalCurrent } = calculateAssetMetrics(asset);
+
+  const isCompact = variant === 'compact';
 
   return (
     <div
-      key={asset.id}
-      className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center"
+      className="bg-white p-4 rounded-xl border grid grid-cols-8 gap-2 items-center"
     >
       <div>
-        <div className="flex items-center gap-2">
-          <p className="font-semibold text-neutral-dark">
-            {asset.symbol}
-          </p>
-          <span className="text-xs px-2 py-0.5 bg-gray-100 rounded flex items-center gap-1">
-            <span>{flag}</span>
-            <span>{label}</span>
+        <div className="flex gap-2">
+          <p className="font-semibold">{asset.symbol}</p>
+          <span className="bg-neutral-100 text-xs self-start p-1 rounded">
+            {flag} {label}
           </span>
         </div>
-
-        <p className="text-sm text-neutral-muted">
-          {asset.name}
-        </p>
-
-        <p className="text-xs text-neutral-muted mt-1">
-          {asset.quantity} cotas - PM R$ {asset.averagePrice.toFixed(2)}
-        </p>
+        <p className="text-xs text-neutral-muted">{asset.name}</p>
       </div>
-
+      <div>
+        R$ {asset.price.toFixed(2)}
+      </div>
+      <div className={isPositive ? 'text-success' : 'text-danger'}>
+        {isPositive ? '+' : ''}{asset.change}%
+      </div>
+      <div>
+        R$ {asset.averagePrice.toFixed(2)}
+      </div>
+      <div className={isProfit ? 'text-success' : 'text-danger'}>
+        {isProfit ? '+' : ''} R$ {profit.toFixed(2)}
+      </div>
+      <div>
+        {asset.quantity}
+      </div>
+      <div className="text-right font-medium">
+        R$ {totalCurrent.toFixed(2)}
+      </div>
       <div className="text-right">
-        <p className="font-semibold text-neutral-dark">
-          R$ {asset.price.toFixed(2)}
-        </p>
-
-        <p className={`text-sm font-medium ${isPositive ? 'text-success' : 'text-danger'
-          }`}>
-          {isPositive ? '+' : ''}{asset.change}%
-        </p>
-
-        <p className={`text-xs mt-1 ${isProfit ? 'text-success' : 'text-danger'
-          }`}>
-          {isProfit ? '+' : ''}
-          R$ {profit.toFixed(2)}
-        </p>
+        <button>detalhes</button>
       </div>
     </div>
   )

@@ -8,8 +8,8 @@ export type Asset = {
   quantity: number;
   averagePrice: number;
   change: number;
-  exchange: 'B3' | 'NYSE' | 'NASDAQ';
-  type: AssetType;
+  exchange?: 'B3' | 'NYSE' | 'NASDAQ';
+  type?: AssetType;
 }
 
 export type AssetMarketData = {
