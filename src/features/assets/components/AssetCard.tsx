@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { getAssetDisplay } from "../formatters/getAssetDisplay";
 import type { Asset } from "../types/asset";
 import { calculateAssetMetrics } from "../utils/calculateAssetMetrics";
@@ -8,6 +9,8 @@ interface IAssetCardProps {
 }
 
 export function AssetCard({ asset, variant = 'default' }: IAssetCardProps) {
+  const navigate = useNavigate();
+
   const isPositive = (asset.change ?? 0) >= 0;
 
   const { label, flag } = getAssetDisplay(asset)
@@ -48,7 +51,7 @@ export function AssetCard({ asset, variant = 'default' }: IAssetCardProps) {
         R$ {totalCurrent.toFixed(2)}
       </div>
       <div className="text-right">
-        <button>detalhes</button>
+        <button onClick={() => navigate(`/assets/${asset.id}`)}>Editar</button>
       </div>
     </div>
   )
