@@ -1,4 +1,4 @@
-import type { Asset } from "../types/asset"
+import type { Asset } from "../types/asset";
 
 const assetLabels = {
   BR: {
@@ -18,11 +18,12 @@ const assetLabels = {
 export function getAssetDisplay(asset: Asset) {
   const isBR = asset.exchange === "B3"
 
+  const type = asset.type ?? "STOCK";
   const locale = isBR ? "BR" : "US"
   const flag = isBR ? "🇧🇷" : "🇺🇸"
 
   return {
-    label: assetLabels[locale][asset.type],
+    label: assetLabels[locale][type],
     flag,
   }
 }

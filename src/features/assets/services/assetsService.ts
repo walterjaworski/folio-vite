@@ -1,3 +1,4 @@
+import type { CreateAssetDTO } from "../components/AssetForm";
 import { assetsMock } from "../mocks/assets.mock";
 import type { Asset } from "../types/asset";
 
@@ -6,24 +7,26 @@ function delay(ms: number) {
 }
 
 export async function getAssets(): Promise<Asset[]> {
-  await delay(1000); // Simula um atraso de 1 segundo
+  await delay(1000);
   return assetsMock;
 }
 
-export async function createAsset(newAsset: Asset) {
+// ✅ CREATE agora recebe DTO (sem id)
+export async function createAsset(newAsset: CreateAssetDTO): Promise<Asset> {
   await delay(1000);
 
-  const assetWithId = {
+  const assetWithId: Asset = {
     ...newAsset,
-    id: crypto.randomUUID()
+    id: crypto.randomUUID(),
   };
 
   assetsMock.push(assetWithId);
   return assetWithId;
 }
 
-export async function updateAsset(updatedAsset: Asset) {
-  await delay(1000); // Simula um atraso de 1 segundo
+// ✅ UPDATE continua recebendo Asset completo
+export async function updateAsset(updatedAsset: Asset): Promise<Asset> {
+  await delay(1000);
 
   const index = assetsMock.findIndex(asset => asset.id === updatedAsset.id);
 
@@ -32,14 +35,16 @@ export async function updateAsset(updatedAsset: Asset) {
       ...assetsMock[index],
       ...updatedAsset,
     };
-    return updatedAsset;
+
+    return assetsMock[index]; // 🔥 melhor retornar o atualizado real
   }
 
   throw new Error("Asset not found");
 }
 
+// ✅ DELETE sem mudanças relevantes
 export async function deleteAsset(id: string): Promise<Asset> {
-  await delay(1000); // Simula um atraso de 1 segundo
+  await delay(1000);
 
   const index = assetsMock.findIndex(asset => asset.id === id);
 
@@ -49,4 +54,4 @@ export async function deleteAsset(id: string): Promise<Asset> {
   }
 
   throw new Error("Asset not found");
-} 
+}

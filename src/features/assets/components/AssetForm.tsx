@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Asset } from "../types/asset";
 
-type CreateAssetDTO = Omit<Asset, "id">;
+export type CreateAssetDTO = Omit<Asset, "id">;
 
 interface IAssetFormProps {
   onSubmit: (data: CreateAssetDTO) => void;

@@ -8,7 +8,7 @@ interface IAssetCardProps {
   variant?: 'default' | 'compact';
 }
 
-export function AssetCard({ asset, variant = 'default' }: IAssetCardProps) {
+export function AssetCard({ asset }: IAssetCardProps) {
   const navigate = useNavigate();
 
   const isPositive = (asset.change ?? 0) >= 0;
@@ -16,8 +16,6 @@ export function AssetCard({ asset, variant = 'default' }: IAssetCardProps) {
   const { label, flag } = getAssetDisplay(asset)
 
   const { profit, isProfit, totalCurrent } = calculateAssetMetrics(asset);
-
-  const isCompact = variant === 'compact';
 
   return (
     <div
