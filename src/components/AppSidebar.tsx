@@ -1,5 +1,6 @@
 import { LayoutDashboard, Settings, Wallet } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { Logo } from "./Logo";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from "./ui/sidebar";
 
 const navItems = [
@@ -11,7 +12,7 @@ export default function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <p>Folio</p>
+        <Logo className="w-auto h-10 text-primary" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
