@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AssetForm } from "../../features/assets/components/AssetForm";
 import { useAssets } from "../../features/assets/hooks/useAssets";
@@ -9,7 +8,6 @@ import { useUpdateAsset } from "../../features/assets/hooks/useUpdateAsset";
 import type { Asset } from "../../features/assets/types/asset";
 
 export function EditAssetPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
 
   if (!id) return <p>ID inválido</p>;
