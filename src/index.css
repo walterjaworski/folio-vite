@@ -1,92 +1,49 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* No v4, mapeamos as variáveis de sistema aqui */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-xl: var(--radius);
+}
 
 @layer base {
   :root {
-    /* Background: off-white quente visto no dashboard */
     --background: 60 10% 96%;
     --foreground: 210 30% 15%;
-
-    /* Cards: branco puro com leve separação do fundo */
-    --card: 0 0% 100%;
-    --card-foreground: 210 30% 15%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 30% 15%;
-
-    /* Primary: #1B2631 — navy escuro */
+    /* ... mantenha o restante das suas variáveis HSL aqui ... */
     --primary: 210 30% 15%;
-    --primary-foreground: 60 10% 96%;
-
-    /* Secondary: #27AE60 — verde */
-    --secondary: 145 63% 42%;
-    --secondary-foreground: 0 0% 100%;
-
-    /* Muted: cinza claro neutro para fundos secundários */
-    --muted: 210 15% 93%;
-    --muted-foreground: 210 10% 45%;
-
-    /* Accent: verde suave (hover states, badges) */
-    --accent: 145 63% 95%;
-    --accent-foreground: 145 63% 30%;
-
-    /* Destructive: #E74C3C — vermelho/coral */
-    --destructive: 4 73% 56%;
-    --destructive-foreground: 0 0% 100%;
-
     --border: 210 15% 88%;
-    --input: 210 15% 88%;
-    --ring: 145 63% 42%;
-
     --radius: 0.75rem;
 
-    /* Custom tokens do design system */
-    --color-primary: #1B2631;
-    --color-secondary: #27AE60;
-    --color-tertiary: #E74C3C;
-    --color-neutral: #787777;
-  }
-
-  .dark {
-    /* Background: preto profundo do dark mode */
-    --background: 220 20% 8%;
-    --foreground: 60 10% 94%;
-
-    /* Cards: cinza-escuro com leve elevação */
-    --card: 220 18% 12%;
-    --card-foreground: 60 10% 94%;
-
-    --popover: 220 18% 12%;
-    --popover-foreground: 60 10% 94%;
-
-    /* Primary no dark: branco/claro */
-    --primary: 60 10% 94%;
-    --primary-foreground: 220 20% 8%;
-
-    /* Secondary: verde mantido com leve ajuste de luminosidade */
-    --secondary: 145 55% 38%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 15% 18%;
-    --muted-foreground: 210 10% 58%;
-
-    --accent: 145 30% 18%;
-    --accent-foreground: 145 55% 65%;
-
-    /* Destructive: vermelho um pouco mais suave no dark */
-    --destructive: 4 65% 48%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 145 55% 45%;
+    /* Variáveis específicas da Sidebar que o shadcn v4 exige */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border outline-ring/50;
   }
 
   body {
