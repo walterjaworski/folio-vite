@@ -14,7 +14,7 @@ export default function AppBar() {
   const title = pageTitles[pathname] ?? 'Folio'
 
   return (
-    <header className="flex items-center justify-between h-14 px-4 border-b border-border bg-background">
+    <header className="flex items-center justify-between h-14 px-4 bg-background">
       <div className="flex items-center gap-2">
         <SidebarTrigger />
         <span>{title}</span>

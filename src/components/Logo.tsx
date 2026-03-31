@@ -1,4 +1,3 @@
-// src/components/Logo.tsx
 import { cn } from "@/lib/utils"
 
 interface LogoProps extends React.SVGProps<SVGSVGElement> {

@@ -1,46 +1,55 @@
 import { LayoutDashboard, Settings, Wallet } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Logo } from "./Logo";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from "./ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 
 const navItems = [
   { label: 'Dashboard', icon: LayoutDashboard, to: '/' },
   { label: 'Meus Ativos', icon: Wallet, to: '/assets' },
 ]
 
+
 export default function AppSidebar() {
+  const location = useLocation();
+
   return (
-    <Sidebar>
-      <SidebarHeader>
+    <Sidebar collapsible="icon">
+      <SidebarHeader className="p-4">
         <Logo className="w-auto h-10 text-primary" />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="p-4">
         <SidebarMenu>
-          {navItems.map(({ label, icon: Icon, to }) => (
-            <SidebarMenuItem key={to}>
-              <SidebarMenuButton asChild>
-                <NavLink
-                  to={to}
-                  end
-                  className={({ isActive }) => isActive ? "bg-accent text-accent-foreground" : ""}
+          {navItems.map(({ label, icon: Icon, to }) => {
+            const isActive = location.pathname === to;
+
+            return (
+              <SidebarMenuItem key={to}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={isActive}
                 >
-                  <Icon className="size-4" />
-                  <span>{label}</span>
-                </NavLink>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
+                  <NavLink to={to}>
+                    <Icon className="size-4" />
+                    <span>{label}</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            )
+          })}
         </SidebarMenu>
       </SidebarContent>
 
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarTrigger />
-            <SidebarMenuButton asChild>
-              <NavLink to="/settings" className="text-muted-foreground">
+            <SidebarMenuButton
+              asChild
+              isActive={location.pathname === "/settings"}
+              className="data-[active=true]:rounded-full px-4"
+            >
+              <NavLink to="/settings">
                 <Settings className="size-4" />
-                <span>Settings</span>
+                <span>Configurações</span>
               </NavLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
