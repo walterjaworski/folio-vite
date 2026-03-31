@@ -1,22 +1,27 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
-import { AssetsPage } from './pages/Assets'
-import { EditAssetPage } from './pages/Assets/EditAssetPage'
-import { NewAssetPage } from './pages/Assets/NewAssetPage'
-import { DashboardPage } from './pages/Dashboard'
+import './App.css';
+
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from 'react-router-dom';
+import { AppLayout } from './layouts/AppLayout';
+import { AssetsPage } from "./pages/Assets";
+import { EditAssetPage } from "./pages/Assets/EditAssetPage";
+import { NewAssetPage } from "./pages/Assets/NewAssetPage";
+import { DashboardPage } from "./pages/Dashboard";
+
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      { path: "/", element: <DashboardPage /> },
+      { path: "/assets", element: <AssetsPage /> },
+      { path: "/assets/new", element: <NewAssetPage /> },
+      { path: "/assets/:id", element: <EditAssetPage /> }
+    ]
+  }
+])
 
 function App() {
-
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="/assets" element={<AssetsPage />} />
-        <Route path="/assets/new" element={<NewAssetPage />} />
-        <Route path="/assets/:id" element={<EditAssetPage />} />
-      </Routes>
-    </BrowserRouter>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App
