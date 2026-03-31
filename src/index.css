@@ -29,6 +29,7 @@
   --color-sidebar-accent: hsl(var(--sidebar-accent));
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-hover: hsl(var(--sidebar-hover));
 }
 
 @layer base {
@@ -41,6 +42,7 @@
     --sidebar-accent: 210 16% 90%;
     --sidebar-accent-foreground: 222 47% 11%;
     --sidebar-border: 210 20% 92%;
+    --sidebar-hover: 210 16% 94%;
 
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
