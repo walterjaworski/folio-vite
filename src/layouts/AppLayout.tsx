@@ -14,7 +14,7 @@ export function AppLayout({ sidebar = true, appBar = true }: IAppLayoutProps) {
       {sidebar && <AppSidebar />}
       <SidebarInset>
         {appBar && <AppBar />}
-        <main className="p-6">
+        <main className="p-4">
           <Outlet />
         </main>
       </SidebarInset>
