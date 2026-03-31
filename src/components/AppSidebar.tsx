@@ -1,6 +1,6 @@
 import { LayoutDashboard, Settings, Wallet } from "lucide-react";
-import { NavLink } from "react-router";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
+import { NavLink } from "react-router-dom";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from "./ui/sidebar";
 
 const navItems = [
   { label: 'Dashboard', icon: LayoutDashboard, to: '/' },
@@ -20,9 +20,8 @@ export default function AppSidebar() {
               <SidebarMenuButton asChild>
                 <NavLink
                   to={to}
-                  className={({ isActive }) =>
-                    isActive ? 'text-primary font-semibold' : 'text-muted-foreground'
-                  }
+                  end
+                  className={({ isActive }) => isActive ? "bg-accent text-accent-foreground" : ""}
                 >
                   <Icon className="size-4" />
                   <span>{label}</span>
@@ -36,6 +35,7 @@ export default function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
+            <SidebarTrigger />
             <SidebarMenuButton asChild>
               <NavLink to="/settings" className="text-muted-foreground">
                 <Settings className="size-4" />

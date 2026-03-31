@@ -1,5 +1,6 @@
+import AppBar from "@/components/AppBar";
 import AppSidebar from "@/components/AppSidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Outlet } from "react-router-dom";
 
 interface IAppLayoutProps {
@@ -10,15 +11,13 @@ interface IAppLayoutProps {
 export function AppLayout({ sidebar = true, appBar = true }: IAppLayoutProps) {
   return (
     <SidebarProvider>
-      <div className="flex h-screen w-full bg-background">
-        {sidebar && <AppSidebar />}
-        <div className="flex flex-col flex-1 overflow-hidden">
-          {appBar && <div>appbar</div>}
-          <main className="flex-1 overflow-y-auto">
-            <Outlet />
-          </main>
-        </div>
-      </div>
+      {sidebar && <AppSidebar />}
+      <SidebarInset>
+        {appBar && <AppBar />}
+        <main className="p-6">
+          <Outlet />
+        </main>
+      </SidebarInset>
     </SidebarProvider>
   )
 }
