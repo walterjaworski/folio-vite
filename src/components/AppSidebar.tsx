@@ -17,8 +17,8 @@ export default function AppSidebar() {
       <SidebarHeader className="p-4">
         <Logo className="w-auto h-10 text-primary" />
       </SidebarHeader>
-      <SidebarContent className="p-4">
-        <SidebarMenu>
+      <SidebarContent>
+        <SidebarMenu className="p-4 gap-2">
           {navItems.map(({ label, icon: Icon, to }) => {
             const isActive = location.pathname === to;
 
