@@ -2,6 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@ui/*": [
+        "./src/components/ui/*"
+      ],
       "@/*": [
         "./src/*"
       ],
@@ -13,9 +16,6 @@
       ],
       "@assets/*": [
         "./src/features/assets/*"
-      ],
-      "@ui/*": [
-        "./src/components/ui/*"
       ],
       "@components": [
         "./src/components"
