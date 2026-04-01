@@ -2,6 +2,7 @@ import { BellIcon, SunIcon, UserIcon } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { SidebarTrigger } from "./ui/sidebar";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const pageTitles: Record<string, string> = {
   '/': 'Dashboard',
@@ -21,15 +22,36 @@ export default function AppBar() {
       </div>
 
       <div className="flex items-center gap-1">
-        <Button variant="ghost" size="icon">
-          <SunIcon className="size-4" />
-        </Button>
-        <Button variant="ghost" size="icon">
-          <BellIcon className="size-4" />
-        </Button>
-        <Button variant="ghost" size="icon">
-          <UserIcon className="size-4" />
-        </Button>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="ghost" size="icon">
+              <SunIcon className="size-4" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Modo claro/escuro</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="ghost" size="icon">
+              <BellIcon className="size-4" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Notificações</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="ghost" size="icon">
+              <UserIcon className="size-4" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Perfil</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
     </header>
   )
