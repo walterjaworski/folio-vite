@@ -1,13 +1,13 @@
 import { useAssets } from "../hooks/useAssets";
 import { AssetCard } from "./AssetCard";
-import { AssetsHeader } from "./AssetsHeader";
+import { AssetsListHeader } from "./AssetsHeader";
 
 export function AssetsList() {
   const { data, isLoading, error } = useAssets();
 
   return (
     <div>
-      <AssetsHeader />
+      <AssetsListHeader />
 
       {isLoading && <p className="p-4">Carregando...</p>}
 
