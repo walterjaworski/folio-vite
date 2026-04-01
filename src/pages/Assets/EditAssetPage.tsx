@@ -7,7 +7,7 @@ import { useDeleteAsset } from "../../features/assets/hooks/useDeleteAsset";
 import { useUpdateAsset } from "../../features/assets/hooks/useUpdateAsset";
 import type { Asset } from "../../features/assets/types/asset";
 
-export function EditAssetPage() {
+export default function EditAssetPage() {
   const { id } = useParams();
 
   if (!id) return <p>ID inválido</p>;

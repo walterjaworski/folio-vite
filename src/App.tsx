@@ -3,10 +3,7 @@ import './App.css';
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from 'react-router-dom';
 import { AppLayout } from './layouts/AppLayout';
-import { AssetsPage } from "./pages/Assets";
-import { EditAssetPage } from "./pages/Assets/EditAssetPage";
-import { NewAssetPage } from "./pages/Assets/NewAssetPage";
-import { DashboardPage } from "./pages/Dashboard";
+import { AssetsPage, DashboardPage, EditAssetPage, NewAssetPage } from './pages';
 
 const router = createBrowserRouter([
   {

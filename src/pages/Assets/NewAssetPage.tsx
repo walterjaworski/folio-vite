@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { AssetForm, type CreateAssetDTO } from "../../features/assets/components/AssetForm";
 import { useCreateAsset } from "../../features/assets/hooks/useCreateAsset";
 
-export function NewAssetPage() {
+export default function NewAssetPage() {
   const { mutate } = useCreateAsset();
   const navigate = useNavigate();
 
