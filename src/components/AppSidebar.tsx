@@ -1,7 +1,7 @@
+import { Logo } from "@components";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@ui/sidebar";
 import { LayoutDashboard, Settings, Wallet } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Logo } from "./Logo";
 
 const navItems = [
   { label: 'Dashboard', icon: LayoutDashboard, to: '/' },
