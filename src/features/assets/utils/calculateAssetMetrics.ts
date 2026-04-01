@@ -1,4 +1,4 @@
-import type { Asset } from "../types/asset";
+import type { Asset } from "@assets/types/asset";
 
 export function calculateAssetMetrics(asset: Asset) {
   const totalInvested = asset.quantity * asset.averagePrice;

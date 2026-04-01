@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export function AssetsListHeader() {
+export default function AssetsListHeader() {
   const navigate = useNavigate();
 
   return (

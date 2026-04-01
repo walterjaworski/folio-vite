@@ -1,6 +1,6 @@
-import type { CreateAssetDTO } from "../components/AssetForm";
-import { assetsMock } from "../mocks/assets.mock";
-import type { Asset } from "../types/asset";
+import type { CreateAssetDTO } from "@assets/components/AssetForm";
+import { assetsMock } from "@assets/mocks/assets.mock";
+import type { Asset } from "@assets/types/asset";
 
 function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));

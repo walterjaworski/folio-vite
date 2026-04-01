@@ -1,7 +1,7 @@
+import type { CreateAssetDTO } from '@assets/components/AssetForm';
+import { createAsset } from '@assets/services/assetsService';
+import type { Asset } from '@assets/types/asset';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import type { CreateAssetDTO } from '../components/AssetForm';
-import { createAsset } from '../services/assetsService';
-import type { Asset } from '../types/asset';
 export function useCreateAsset() {
   const queryClient = useQueryClient();
 

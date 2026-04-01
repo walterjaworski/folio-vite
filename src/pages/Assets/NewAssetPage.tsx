@@ -1,20 +1,25 @@
+import { AssetForm } from "@assets/components";
+import { useCreateAsset } from "@assets/hooks/useCreateAsset";
 import { useNavigate } from "react-router-dom";
-import { AssetForm, type CreateAssetDTO } from "../../features/assets/components/AssetForm";
-import { useCreateAsset } from "../../features/assets/hooks/useCreateAsset";
+
+import type { CreateAssetDTO } from "@assets/components/AssetForm";
 
 export default function NewAssetPage() {
   const { mutate } = useCreateAsset();
   const navigate = useNavigate();
 
-  function handleCreate(asset: CreateAssetDTO) {
-    mutate(asset, {
+  function handleCreate(data: CreateAssetDTO) {
+    mutate(data, {
       onSuccess: () => {
-        navigate("/assets")
+        navigate("/assets");
       }
     });
   }
 
   return (
-    <AssetForm onSubmit={handleCreate} />
-  )
+    <main className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Novo Ativo</h1>
+      <AssetForm onSubmit={handleCreate} />
+    </main>
+  );
 }

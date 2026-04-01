@@ -1,8 +1,8 @@
-import { useAssets } from "../hooks/useAssets";
-import { AssetCard } from "./AssetCard";
-import { AssetsListHeader } from "./AssetsListHeader";
+import { useAssets } from "@assets/hooks/useAssets";
+import AssetCard from "./AssetCard";
+import AssetsListHeader from "./AssetsListHeader";
 
-export function AssetsList() {
+export default function AssetsList() {
   const { data, isLoading, error } = useAssets();
 
   return (

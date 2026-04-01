@@ -1,6 +1,6 @@
+import { getAssets } from "@assets/services/assetsService";
+import type { Asset } from "@assets/types/asset";
 import { useQuery } from "@tanstack/react-query";
-import { getAssets } from "../services/assetsService";
-import type { Asset } from "../types/asset";
 
 export function useAssets() {
   return useQuery<Asset[]>({

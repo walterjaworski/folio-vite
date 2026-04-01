@@ -1,6 +1,6 @@
 import AppBar from "@/components/AppBar";
 import AppSidebar from "@/components/AppSidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@ui/sidebar";
 import { Outlet } from "react-router-dom";
 
 interface IAppLayoutProps {
@@ -8,7 +8,7 @@ interface IAppLayoutProps {
   appBar?: boolean;
 }
 
-export function AppLayout({ sidebar = true, appBar = true }: IAppLayoutProps) {
+export default function AppLayout({ sidebar = true, appBar = true }: IAppLayoutProps) {
   return (
     <SidebarProvider>
       {sidebar && <AppSidebar />}

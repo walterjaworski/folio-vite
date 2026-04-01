@@ -1,5 +1,5 @@
+import type { Asset } from "@assets/types/asset";
 import { useState } from "react";
-import type { Asset } from "../types/asset";
 
 export type CreateAssetDTO = Omit<Asset, "id">;
 
@@ -8,7 +8,7 @@ interface IAssetFormProps {
   defaultValues?: Partial<Asset>;
 }
 
-export function AssetForm({ onSubmit, defaultValues }: IAssetFormProps) {
+export default function AssetForm({ onSubmit, defaultValues }: IAssetFormProps) {
   const [symbol, setSymbol] = useState(defaultValues?.symbol || '');
   const [name, setName] = useState(defaultValues?.name || '');
   const [price, setPrice] = useState(defaultValues?.price || 0);

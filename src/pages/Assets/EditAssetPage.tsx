@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { AssetForm } from "@assets/components";
+import { useAssets } from "@assets/hooks/useAssets";
+import { useDeleteAsset } from "@assets/hooks/useDeleteAsset";
+import { useUpdateAsset } from "@assets/hooks/useUpdateAsset";
+import type { Asset } from "@assets/types/asset";
+import { Button } from "@ui/button";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@ui/dialog";
 import { useNavigate, useParams } from "react-router-dom";
-import { AssetForm } from "../../features/assets/components/AssetForm";
-import { useAssets } from "../../features/assets/hooks/useAssets";
-import { useDeleteAsset } from "../../features/assets/hooks/useDeleteAsset";
-import { useUpdateAsset } from "../../features/assets/hooks/useUpdateAsset";
-import type { Asset } from "../../features/assets/types/asset";
 
 export default function EditAssetPage() {
   const { id } = useParams();

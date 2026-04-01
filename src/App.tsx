@@ -1,9 +1,8 @@
 import './App.css';
 
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from 'react-router-dom';
-import { AppLayout } from './layouts/AppLayout';
-import { AssetsPage, DashboardPage, EditAssetPage, NewAssetPage } from './pages';
+import { AppLayout } from '@layouts';
+import { AssetsPage, DashboardPage, EditAssetPage, NewAssetPage } from '@pages';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {

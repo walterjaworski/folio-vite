@@ -1,4 +1,4 @@
-import type { Asset } from "../types/asset";
+import type { Asset } from "@assets/types/asset";
 
 export const assetsMock: Asset[] = [
   { id: "1", symbol: "BBSE3", name: "BB Seguridade", quantity: 100, averagePrice: 30.50, price: 34.20, change: 1.2, exchange: "B3", type: "STOCK" },
