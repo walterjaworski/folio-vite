@@ -10,7 +10,7 @@ interface ISummaryCardProps {
 
 export default function SummaryCard({ title, children, footer, className }: ISummaryCardProps) {
   return (
-    <Card className={cn("bg-card dark:bg-card flex flex-col transition-all duration-200 border-none ring-0 shadow-none", className)}>
+    <Card className={cn("flex flex-col transition-all duration-200 border-none ring-0 shadow-none", className)}>
       <CardHeader>
         <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           {title}

@@ -17,9 +17,11 @@ export default function AssetsList() {
         <p className="p-4">Nenhum ativo encontrado</p>
       )}
 
-      {!isLoading && !error && data?.map(asset => (
-        <AssetCard asset={asset} key={asset.id} />
-      ))}
+      <div className="flex flex-col gap-3">
+        {!isLoading && !error && data?.map(asset => (
+          <AssetCard asset={asset} key={asset.id} />
+        ))}
+      </div>
     </div>
   )
 }

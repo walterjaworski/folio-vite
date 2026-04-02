@@ -5,23 +5,13 @@ export default function AssetsListHeader() {
 
   return (
     <div className="flex items-center justify-between px-4 py-2">
-      <div className="grid grid-cols-8 flex-1 text-sm text-neutral-muted">
-        <div>Ativo</div>
-        <div>Último Preço</div>
-        <div>Variação</div>
-        <div>Preço Médio</div>
-        <div>Rentabilidade</div>
+      <div className="grid grid-cols-5 flex-1 text-sm text-neutral-muted text-right">
+        <div className="text-left">Ativo</div>
         <div>Quantidade</div>
-        <div className="text-right">Posição</div>
-        <div></div>
+        <div>Preço atual</div>
+        <div>Valor total</div>
+        <div>Performance</div>
       </div>
-
-      <button
-        onClick={() => navigate("/assets/new")}
-        className="ml-4 px-3 py-1 rounded bg-black text-white text-sm"
-      >
-        + Adicionar
-      </button>
     </div>
   );
 }
