@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Card, CardContent, CardHeader } from "@ui/card";
 
 interface ISummaryCardProps {
   title: string;
@@ -9,16 +10,22 @@ interface ISummaryCardProps {
 
 export default function SummaryCard({ title, children, footer, className }: ISummaryCardProps) {
   return (
-    <div className={cn("bg-white p-6 rounded-md flex flex-col justify-between gap-4", className)}>
-      <h3 className="text-sm font-semibold uppercase">
-        {title}
-      </h3>
-      {children}
-      {footer && (
-        <div>
-          {footer}
+    <Card className={cn("bg-card dark:bg-card flex flex-col transition-all duration-200 border-none ring-0 shadow-none", className)}>
+      <CardHeader>
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          {title}
+        </h3>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="flex-1">
+          {children}
         </div>
-      )}
-    </div>
+        {footer && (
+          <div className="text-xs text-muted-foreground/80 flex items-center gap-1.5">
+            {footer}
+          </div>
+        )}
+      </CardContent>
+    </Card>
   )
 }
