@@ -2,6 +2,8 @@
 @import "tailwindcss";
 @import "@fontsource-variable/geist";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-title: "Plus Jakarta Sans", sans-serif;
   --font-sans: "Geist Variable", sans-serif;
@@ -56,6 +58,28 @@
 
     --radius: 0.6rem;
   }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 213 31% 91%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 215 20% 65%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-hover: 217 33% 20%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11.2%;
+
+    --muted: 217 33% 17.5%;
+    --muted-foreground: 215 20% 65%;
+    --border: 217 33% 17.5%;
+  }
 }
 
 @layer base {
@@ -64,6 +88,6 @@
   }
 
   body {
-    @apply font-sans bg-background text-foreground antialiased;
+    @apply font-sans bg-background text-foreground antialiased transition-colors duration-300;
   }
 }

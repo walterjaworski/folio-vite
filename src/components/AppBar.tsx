@@ -1,7 +1,8 @@
+import { ThemeToggle } from "@components";
 import { Button } from "@ui/button";
 import { SidebarTrigger } from "@ui/sidebar";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@ui/tooltip";
-import { BellIcon, SunIcon, UserIcon } from "lucide-react";
+import { BellIcon, UserIcon } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
 const pageTitles: Record<string, string> = {
@@ -24,9 +25,10 @@ export default function AppBar() {
       <div className="flex items-center gap-1">
         <Tooltip>
           <TooltipTrigger>
-            <Button variant="ghost" size="icon">
+            {/* <Button variant="ghost" size="icon">
               <SunIcon className="size-4" />
-            </Button>
+            </Button> */}
+            <ThemeToggle />
           </TooltipTrigger>
           <TooltipContent>
             <p>Modo claro/escuro</p>

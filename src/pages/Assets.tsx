@@ -22,8 +22,8 @@ export default function AssetsPage() {
           title="Patrimônio Total"
           footer={
             <div className="flex items-center gap-2">
-              <Badge className="bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300">
-                <TrendingUp />
+              <Badge className="bg-green-500/10 text-green-600 dark:bg-green-500/20 dark:text-green-400 border-none shadow-none">
+                <TrendingUp size={14} />
                 2.4%
               </Badge>
               este mês
